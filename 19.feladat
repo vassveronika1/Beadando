@@ -1,0 +1,141 @@
+kod = {' ': '_',
+	"'": '.----.',
+	'(': '-.--.-',
+	')': '-.--.-',
+	',': '--..--',
+	'-': '-....-',
+	'.': '.-.-.-',
+	'/': '-..-.',
+	'0': '-----',
+	'1': '.----',
+	'2': '..---',
+	'3': '...--',
+	'4': '....-',
+	'5': '.....',
+	'6': '-....',
+	'7': '--...',
+	'8': '---..',
+	'9': '----.',
+	':': '---...',
+	';': '-.-.-.',
+	'?': '..--..',
+	'A': '.-',
+	'B': '-...',
+	'C': '-.-.',
+	'D': '-..',
+	'E': '.',
+	'F': '..-.',
+	'G': '--.',
+	'H': '....',
+	'I': '..',
+	'J': '.---',
+	'K': '-.-',
+	'L': '.-..',
+	'M': '--',
+	'N': '-.',
+	'O': '---',
+	'P': '.--.',
+	'Q': '--.-',
+	'R': '.-.',
+	'S': '...',
+	'T': '-',
+	'U': '..-',
+	'V': '...-',
+	'W': '.--',
+	'X': '-..-',
+	'Y': '-.--',
+	'Z': '--..',
+	'_': '..--.-'}
+
+revkod={
+    ''      : ' ',
+    '.-'    : 'A',
+    '-...'  : 'B',
+    '-.-.'  : 'C',
+    '-..'   : 'D',
+    '.'     : 'E',
+    '..-.'  : 'F',
+    '--.'   : 'G',
+    '....'  : 'H',
+    '..'    : 'I',
+    '.---'  : 'J',
+    '-.-'   : 'K',
+    '.-..'  : 'L',
+    '--'    : 'M',
+    '-.'    : 'N',
+    '---'   : 'O',
+    '.--.'  : 'P',
+    '--.-'  : 'Q',
+    '.-.'   : 'R',
+    '...'   : 'S',
+    '-'     : 'T',
+    '..-'   : 'U',
+    '...-'  : 'V',
+    '.--'   : 'W',
+    '-..-'  : 'X',
+    '-.--'  : 'Y',
+    '--..'  : 'Z',
+    '-----' : '0',
+    '.----' : '1',
+    '..---' : '2',
+    '...--' : '3',
+    '....-' : '4',
+    '.....' : '5',
+    '-....' : '6',
+    '--...' : '7',
+    '---..' : '8',
+    '----.' : '9',
+    '.----.': "'",
+    '-.--.-': '(',
+    '-.--.-': ')',
+    '--..--': ',',
+    '-....-': '-',
+    '.-.-.-': '.',
+    '-..-.': '/'
+}
+
+def konvertalas(szoveg):
+    szoveg=szoveg.upper()
+    lekodolt=""
+    for characters in szoveg:
+        lekodolt=lekodolt+kod[characters]+"|"
+    return lekodolt
+
+def feltor(jelek):
+    jelek=jelek.split(" ")
+    feltorni=""
+    for char in jelek:
+        feltorni+=revkod[char]
+    return feltorni
+
+# leforditani=input("kérem a lefordítani kívánt szöveget: ")
+# lekodolt=konvertalas(leforditani)
+# print(lekodolt)
+# jeles=input("kérem a feltörni kívánt jeleket: ")
+# leforditott=feltor(jeles).lower()
+# print(leforditott)
+
+# a=input("mit szeretnél? (lefordítani/feltörni): ")
+# if a=="lefordítani":
+#     leforditani=input("kérem a lefordítani kívánt szöveget: ")
+#     leforditani=leforditani.upper()
+#     megoldas=""
+#     for character in leforditani:
+#         megoldas=megoldas+kod[character]+"|"
+#     print(megoldas)
+# elif a=="feltörni":
+#     jelek=input("kérem a feltörni kívánt jeleket: ")
+#     jelek=jelek.split(" ")
+#     feltort=""
+#     for char in jelek:
+#         feltort+=revkod[char]
+#     feltort=feltort.lower()
+#     print(feltort)
+# else:
+#     print("Elírtál valamit")
+
+a=input("kérem a szöveget/kódot: ")
+if a[0]=="." or a[0]=="-":
+    print(feltor(a))
+else:
+    print(konvertalas(a))
