@@ -1,0 +1,39 @@
+import numpy as np
+
+# a=int(input("Számok intervallumának kezdete: "))
+# o=int(input("Számok intervallumának vége: "))
+#
+# N=int(input("Sorok száma: "))
+# M=int(input("Oszlopok száma: "))
+a=1
+o=500
+N=10
+M=10
+m=np.random.randint(a,o,(N,M))
+print(m)
+
+
+def perfectnum(number):
+    osztok=0
+    for i in range(1,number):
+        if number%i==0:
+            osztok+=i
+    if osztok==number:
+        return True
+    else:
+        return False
+
+perfect=[]
+indexes=[]
+for i in range(N):
+    for j in range(M):
+        if perfectnum(m[i,j]):
+            perfect.append(m[i, j])
+            indexes.append([i+1,j+1])
+
+if perfect == []:
+    print("A mátrix nem tartalmaz tökéletes számot.")
+else:
+    print("A tökeletes számok:")
+    for i in range(len(perfect)):
+        print(perfect[i],'indexei:',indexes[i])
